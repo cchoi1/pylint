@@ -1,0 +1,4 @@
+[console_scripts]
+contributors-txt = contributors_txt.__main__:main
+contributors-txt-extract-comment = contributors_txt.extract_comment:main
+contributors-txt-normalize-configuration = contributors_txt.normalize:main

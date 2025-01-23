@@ -1,0 +1,125 @@
+Metadata-Version: 2.1
+Name: cli-ui
+Version: 0.18.0
+Summary: Build Nice User Interfaces In The Terminal
+Home-page: https://git.sr.ht/~your-tools/python-cli-ui
+License: BSD-3-Clause
+Author: Dimitri Merejkowsky
+Author-email: dimitri@dmerej.info
+Requires-Python: >=3.8.1,<4.0.0
+Classifier: License :: OSI Approved :: BSD License
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.9
+Classifier: Programming Language :: Python :: 3.10
+Classifier: Programming Language :: Python :: 3.11
+Classifier: Programming Language :: Python :: 3.12
+Requires-Dist: colorama (>=0.4.1,<0.5.0)
+Requires-Dist: tabulate (>=0.9.0,<0.10.0)
+Requires-Dist: unidecode (>=1.3.6,<2.0.0)
+Project-URL: Changelog, https://your-tools.github.io/python-cli-ui/changelog.html
+Project-URL: Documentation, https://your-tools.github.io/python-cli-ui/
+Project-URL: Issues, https://github.com/your-tools/python-cli-ui/issues
+Project-URL: Repository, https://git.sr.ht/~your-tools/python-cli-ui
+Description-Content-Type: text/x-rst
+
+.. image:: https://img.shields.io/pypi/pyversions/cli-ui.svg
+  :target: https://pypi.org/project/cli-ui
+
+.. image:: https://img.shields.io/pypi/v/cli-ui.svg
+  :target: https://pypi.org/project/cli-ui/
+
+.. image:: https://img.shields.io/github/license/your-tools/python-cli-ui.svg
+  :target: https://github.com/your-tools/python-cli-ui/blob/main/LICENSE
+
+.. image:: https://img.shields.io/badge/deps%20scanning-pyup.io-green
+  :target: https://github.com/your-tools/python-cli-ui/actions
+
+python-cli-ui
+=============
+
+Tools for nice user interfaces in the terminal.
+
+Note
+----
+
+This project was originally hosted on the `TankerHQ
+<https://github.com/TankerHQ>`_ organization, which was my employer from 2016
+to 2021. They kindly agreed to give back ownership of this project to
+me. Thanks!
+
+Documentation
+-------------
+
+
+See `python-cli-ui documentation <https://your-tools.github.io/python-cli-ui>`_.
+
+Demo
+----
+
+
+Watch the `asciinema recording <https://asciinema.org/a/112368>`_.
+
+
+Usage
+-----
+
+.. code-block:: console
+
+    $ pip install cli-ui
+
+Example:
+
+.. code-block:: python
+
+    import cli_ui
+
+    # coloring:
+    cli_ui.info(
+      "This is",
+      cli_ui.red, "red", cli_ui.reset,
+      "and this is",
+      cli_ui.bold, "bold"
+    )
+
+    # enumerating:
+    list_of_things = ["foo", "bar", "baz"]
+    for i, thing in enumerate(list_of_things):
+        cli_ui.info_count(i, len(list_of_things), thing)
+
+    # progress indication:
+    cli_ui.info_progress("Done",  5, 20)
+    cli_ui.info_progress("Done", 10, 20)
+    cli_ui.info_progress("Done", 20, 20)
+
+    # reading user input:
+    with_sugar = cli_ui.ask_yes_no("With sugar?", default=False)
+
+    fruits = ["apple", "orange", "banana"]
+    selected_fruit = cli_ui.ask_choice("Choose a fruit", choices=fruits)
+
+    #  ... and more!
+
+Contributing
+------------
+
+We use `optimistic merging <https://dmerej.info/blog/post/optimistic-merging/>`_ so you don't have to worry too much about formatting the code, pleasing the linters or making sure all the test pass.
+
+That being said, if you want, you can install `just <https://just.systems/man/en/>`_ and use it to check your changes automatically. Just run ``just`` to see available tasks.
+
+Making a new release
+--------------------
+
+* Create a token on pypi : see `pypi help  <https://pypi.org/help/#apitoken>`_ for details.
+
+* Install `tbump <https://pypi.org/project/tbump>`_ and use it to bump `cli-ui` to the new version.
+
+Uploading documentation
+-----------------------
+
+Run:
+
+.. code-block:: sh
+
+    just deploy-doc
+
+
