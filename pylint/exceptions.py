@@ -31,7 +31,7 @@ class MessageBecameExtensionError(UnknownMessageError):
 
     def __init__(self, msgid_or_symbol: str, moved_explanation: str):
         super().__init__(
-            f"'{msgid_or_symbol}' was moved to an optional extension, see {moved_explanation}."
+            f"'{moved_explanation}' was moved to an optional extension, see {msgid_or_symbol}."
         )
 
 
